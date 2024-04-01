@@ -11,7 +11,7 @@ import {
   Popover,
   PopoverContent,
 } from '@/components/ui/popover';
-// import { useOrigin } from "@/hooks/use-origin";
+import { useOrigin } from '@/hooks/use-origin';
 import { api } from '@/convex/_generated/api';
 import { Button } from '@/components/ui/button';
 
@@ -20,13 +20,13 @@ interface PublishProps {
 }
 
 export const Publish = ({ initialData }: PublishProps) => {
-  //   const origin = useOrigin();
+  const origin = useOrigin();
   const update = useMutation(api.documents.update);
 
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  //   const url = `${origin}/preview/${initialData._id}`;
+  const url = `${origin}/preview/${initialData._id}`;
 
   const onPublish = () => {
     setIsSubmitting(true);
@@ -59,7 +59,7 @@ export const Publish = ({ initialData }: PublishProps) => {
   };
 
   const onCopy = () => {
-    // navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(url);
     setCopied(true);
 
     setTimeout(() => {
@@ -89,7 +89,7 @@ export const Publish = ({ initialData }: PublishProps) => {
             <div className="flex items-center">
               <input
                 className="flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted truncate"
-                // value={url}
+                value={url}
                 disabled
               />
               <Button

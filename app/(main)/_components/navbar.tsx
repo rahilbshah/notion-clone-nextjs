@@ -11,8 +11,6 @@ import { Title } from './title';
 import { Menu } from './menu';
 import { Publish } from './publish';
 import { Banner } from './banner';
-// import { Banner } from "./banner";
-// import { Publish } from "./publish";
 
 interface NavbarProps {
   isCollapsed: boolean;
